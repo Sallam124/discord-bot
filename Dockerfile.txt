@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Install unzip and any needed tools
+# Install unzip and dependencies
 RUN apt update && apt install -y unzip
 
 # Set working directory
@@ -9,8 +9,8 @@ WORKDIR /app
 # Copy all files into the container
 COPY . .
 
-# Unzip ffmpeg binary
-RUN unzip ffmpeg.zip -d /usr/local/bin \
+# Unzip ffmpeg from nested path
+RUN unzip bin/zip/ffmpeg -d /usr/local/bin \
  && chmod +x /usr/local/bin/ffmpeg
 
 # Make sure ffmpeg works
