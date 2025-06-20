@@ -1,0 +1,23 @@
+{
+  "name": "spotify-oauth-vercel",
+  "version": "1.0.0",
+  "description": "Spotify OAuth flow for Discord bot using Vercel serverless functions. Set SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REDIRECT_URI as environment variables.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@discordjs/voice": "^0.18.0",
+    "discord.js": "^14.20.0",
+    "distube": "^5.0.7",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "spotify-web-api-node": "^5.0.2",
+    "ytdl-core": "^4.11.5"
+  }
+}

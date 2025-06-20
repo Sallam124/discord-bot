@@ -1,0 +1,8 @@
+{
+  "prefix": "!",
+  "options": {
+    "leaveOnStop": true,
+    "leaveOnFinish": true,
+    "leaveOnEmpty": true
+  }
+} 
