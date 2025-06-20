@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import yt_dlp
 from collections import deque
 import asyncio
+import imageio_ffmpeg
 
 # Load environment variables
 load_dotenv()
@@ -154,7 +155,8 @@ async def play_next_song(voice_client, guild_id, channel):
             "before_options": "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",
             "options": "-vn -c:a libopus -b:a 96k",
         }
-        source = discord.FFmpegOpusAudio(audio_url, **ffmpeg_options, executable="bin\\ffmpeg\\ffmpeg.exe")
+        ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+        source = discord.FFmpegOpusAudio(audio_url, **ffmpeg_options, executable=ffmpeg_path)
         def after_play(error):
             if error:
                 print(f"Error playing {title}: {error}")

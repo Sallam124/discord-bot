@@ -4,3 +4,4 @@ python-dotenv
 discord.py
 ffmpeg-python
 python-dotenv
+imageio-ffmpeg
