@@ -4,7 +4,6 @@ require('dotenv').config();
 // Import required libraries
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { DisTube } = require('distube');
-const { SpotifyPlugin } = require('@distube/spotify');
 const { join } = require('path');
 const fs = require('fs');
 
@@ -21,12 +20,8 @@ const client = new Client({
   ]
 });
 
-// Initialize DisTube with Spotify plugin
-client.distube = new DisTube(client, {
-  plugins: [
-    new SpotifyPlugin()
-  ]
-});
+// Initialize DisTube without plugins
+client.distube = new DisTube(client);
 
 // Command collection
 client.commands = new Collection();
