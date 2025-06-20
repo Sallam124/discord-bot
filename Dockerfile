@@ -10,7 +10,7 @@ WORKDIR /app
 COPY . .
 
 # Unzip ffmpeg from nested path
-RUN unzip bin/zip/ffmpeg -d /usr/local/bin \
+RUN unzip bin/zip -d /usr/local/bin \
  && chmod +x /usr/local/bin/ffmpeg
 
 # Make sure ffmpeg works
