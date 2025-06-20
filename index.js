@@ -182,4 +182,11 @@ client.on('interactionCreate', async (interaction) => {
   }
 });
 
-client.login('MTM4NTcwMjUyNjE5NTU5NzM1Mg.GwjkVM.RTlFk0rHCG6UffPKep2KjCMFZnYcYiYXM-z-AA'); 
+// Add a guard to ensure the token is set
+if (!process.env.DISCORD_TOKEN) {
+  console.error('❌ DISCORD_TOKEN is not set. Please create a .env file with your token.');
+  process.exit(1);
+}
+
+console.log('Logging in with token:', `${process.env.DISCORD_TOKEN.slice(0, 10)}...`, `(length: ${process.env.DISCORD_TOKEN.length})`);
+client.login(process.env.DISCORD_TOKEN); 
