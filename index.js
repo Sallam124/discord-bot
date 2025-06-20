@@ -25,7 +25,7 @@ const client = new Client({
 client.distube = new DisTube(client, {
   plugins: [
     new SpotifyPlugin({
-      emitEventsAfterFetching: true
+      api: true // ✅ keep only valid options
     })
   ],
   leaveOnStop: config.options.leaveOnStop,
