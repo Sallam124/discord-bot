@@ -25,10 +25,7 @@ const client = new Client({
 client.distube = new DisTube(client, {
   plugins: [
     new SpotifyPlugin()
-  ],
-  leaveOnStop: config.options.leaveOnStop,
-  leaveOnFinish: config.options.leaveOnFinish,
-  leaveOnEmpty: config.options.leaveOnEmpty
+  ]
 });
 
 // Command collection
