@@ -11,11 +11,20 @@ const spotifyApi = new SpotifyWebApi({
 async function refreshAccessToken() {
   const data = await spotifyApi.refreshAccessToken();
   spotifyApi.setAccessToken(data.body['access_token']);
+  if (!data.body['access_token']) {
+    console.error('❌ Spotify access token is missing after refresh!');
+  } else {
+    console.log('✅ Spotify access token:', data.body['access_token']);
+  }
 }
 
 // Extract track info from a Spotify URL and return a YouTube search query
 async function getSpotifyTrackQuery(url) {
   await refreshAccessToken();
+  const accessToken = spotifyApi.getAccessToken();
+  if (!accessToken) {
+    throw new Error('Spotify access token is undefined! Check your refresh token and credentials.');
+  }
   let trackInfo;
   if (url.includes('/track/')) {
     // Single track
