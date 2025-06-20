@@ -156,6 +156,8 @@ async def play_next_song(voice_client, guild_id, channel):
             "options": "-vn -c:a libopus -b:a 96k",
         }
         ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+        print(f"FFmpeg path: {ffmpeg_path}")
+        print(f"Audio URL: {audio_url}")
         source = discord.FFmpegOpusAudio(audio_url, **ffmpeg_options, executable=ffmpeg_path)
         def after_play(error):
             if error:
