@@ -1,19 +1,17 @@
-# Use official Node.js 18 image
-FROM node:18
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-# Set working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json ./
+# Copy the requirements file into the container
+COPY requirements.txt .
 
-# Install dependencies
-RUN npm install --production
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the code
+# Copy the rest of the application's code, including the 'bin' directory
 COPY . .
 
-# Expose no ports (Discord bots do not need to expose ports)
-
-# Start the bot
-CMD ["npm", "start"] 
+# Define the command to run the bot
+CMD ["python", "MusicBot.py"] 
