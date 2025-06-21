@@ -12,6 +12,7 @@ import urllib.parse
 # Load environment variables
 load_dotenv()
 DISCORD_TOKEN = 'MTM4NTcwMjUyNjE5NTU5NzM1Mg.GBq_KE.yX2U9zwaLTsTrcnPrkZ_EsOt8lAI-zO_5IxE3g'
+FFMPEG_PATH = "ffmpeg"  # Let the system path resolve it
 
 # Bot setup
 intents = discord.Intents.default()
